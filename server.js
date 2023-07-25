@@ -59,7 +59,7 @@ const server=app.listen(PORT,
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
-       origin: "https://64bfd7e07a7cce0482d53caf--cerulean-smakager-5ccd19.netlify.app/",
+       origin: "https://chitchathub.onrender.com",
       // credentials: true,
     },
   });
