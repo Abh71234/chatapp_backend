@@ -29,6 +29,12 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+const corsOptions = {
+  origin: '*',
+};
+
+// Use the cors middleware with the specified options
+app.use(cors(corsOptions));
 
 
 
