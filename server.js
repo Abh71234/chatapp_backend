@@ -10,7 +10,7 @@ const messageRoutes=require('./routes/messageRoutes');
 const cors = require('cors');
 
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-// const path=require('path');
+const path=require('path');
 const app =express();
 
 app.use(express.json());
@@ -34,7 +34,12 @@ app.use("/api/message", messageRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+app.use(express.static(path.join(__dirname, 'build')));
 
+// Always return the index.html for any request
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 
